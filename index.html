@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 90%;
+            width: 500px;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff6f61;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ff8a80;
+            transform: translateY(-3px);
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Image Container to ensure the image is centered -->
+        <div class="image-container">
+            <img src="gambar0.jpg" alt="Gambar 0" class="image">
+        </div>
+
+        <!-- Tombol untuk memulai musik -->
+        <button class="btn" id="playMusicBtn">🎶 Mulai Musik</button>
+
+        <!-- Tombol untuk menuju halaman ke-2 -->
+        <a href="tuhan.html" class="btn">🎆🎈 SELANJUTNYA 🎆🎈</a>
+    </div>
+
+    <!-- Audio Background -->
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = document.getElementById('background-music');
+            const playButton = document.getElementById('playMusicBtn');
+
+            // Menambahkan event listener pada tombol
+            playButton.addEventListener('click', function () {
+                audio.play().catch(function (error) {
+                    console.error('Tidak dapat memutar musik:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

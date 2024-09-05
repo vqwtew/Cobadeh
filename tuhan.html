@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivasi Tugas Akhir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 90%;
+            width: 500px;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        #next-button {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: #ff6f61;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        #next-button:hover {
+            background-color: #ff8a80;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Image Container to ensure the image is centered -->
+        <div class="image-container">
+            <img src="gambar3.jpg" alt="Gambar 2" class="image">
+        </div>
+
+        <div id="card" class="card-content">
+            <div class="title">
+                <h1><span class="emote">💪</span>😇😇<span class="emote">💪</span></h1>
+            </div>
+            <div class="quote-box">
+                <p>Semangat tugas akhirnya, Melisa pasti bisa!</p>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="next-button">✨🎄 SELANJUTNYAA ✨🎄</button>
+        </div>
+    </div>
+
+    <audio id="background-music" preload="auto" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = document.getElementById('background-music');
+            const savedTime = localStorage.getItem('audioTime');
+
+            // Jika ada waktu yang tersimpan, setel audio ke posisi tersebut
+            if (savedTime) {
+                audio.currentTime = parseFloat(savedTime);
+            }
+
+            // Mulai putar musik jika belum diputar
+            if (audio.paused) {
+                audio.play().catch(function () {
+                    // Jika autoplay diblokir, tunggu klik pengguna untuk memulai
+                    document.body.addEventListener('click', function () {
+                        audio.play();
+                    }, { once: true });
+                });
+            }
+
+            // Simpan posisi audio saat pindah halaman
+            document.getElementById('next-button').addEventListener('click', function () {
+                localStorage.setItem('audioTime', audio.currentTime);
+                // Delay sebelum pindah halaman untuk memastikan data tersimpan
+                setTimeout(function() {
+                    window.location.href = "ucapan.html";
+                }, 100);
+            });
+
+            // Simpan waktu audio setiap kali posisi berubah (timeupdate event)
+            audio.addEventListener('timeupdate', function () {
+                localStorage.setItem('audioTime', audio.currentTime);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('https://images.unsplash.com/photo-1525193029570-9623ee7f4a7e');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.image-container {
+    display: flexbox;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+}
+
+.container1 {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+    max-width: 600px;
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.anjing-container {
+    display: flex; /* Gunakan Flexbox */
+    justify-content: space-between; /* Agar foto tersebar secara merata */
+    gap: 10px; /* Jarak antar gambar */
+    margin-bottom: 20px;
+}
+
+.anjing-container img {
+    width: 48%; /* Agar setiap gambar menempati sekitar setengah dari container */
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.anjing-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+}
+
+.main-image {
+    grid-column: span 2;
+    height: 250px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 0.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #ffeb3b;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.quote-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-style: italic;
+    position: relative;
+}
+
+.quote-box::before {
+    content: open-quote;
+    font-size: 2em;
+    color: #ffeb3b;
+    position: absolute;
+    top: -20px;
+    left: 20px;
+}
+
+.quote-box::after {
+    content: close-quote;
+    font-size: 2em;
+    color: #ffeb3b;
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+}
+
+button {
+    display: flexbox;
+    padding: 15px 30px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+    -webkit-transition: background-color 0.3s ease, transform 0.3s ease;
+    -moz-transition: background-color 0.3s ease, transform 0.3s ease;
+    -ms-transition: background-color 0.3s ease, transform 0.3s ease;
+    -o-transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6f61;
+    transform: translateY(-3px);
+    -webkit-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    -o-transform: translateY(-3px);
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 40px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .image-container {
+        grid-template-columns: 1fr;
+    }
+
+    .main-image {
+        height: 200px;
+    }
+
+    .title {
+        font-size: 1.3m;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}
+
+.quote-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Warna background lebih gelap */
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-style: italic;
+    color: #ffeb3b; /* Warna teks kuning cerah */
+    position: relative;
+    overflow: hidden; /* Menyembunyikan teks sebelum animasi dimulai */
+}
+
+.quote-box::before,
+.quote-box::after {
+    content: '"';
+    font-size: 2.5em;
+    color: #ffeb3b;
+    position: absolute;
+}
+
+.quote-box::before {
+    top: -20px;
+    left: 20px;
+}
+
+.quote-box::after {
+    bottom: -20px;
+    right: 20px;
+}
+
+#quoteDisplay {
+    font-size: 1.0em; /* Ukuran teks sedikit lebih besar */
+    display: block;
+    animation: fadeInUp 2s ease-in-out forwards;
+}
+
+/* Fade In and Slide Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
